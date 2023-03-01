@@ -1,0 +1,13 @@
+void
+function() {
+  (() => {
+    let a = document.createElement("iframe");
+    document.body.append(a), window.prompt = a.contentWindow.prompt.bind(window), window.alert = a.contentWindow.alert.bind(window), a.remove()
+  })(), level = parseInt(prompt("What Level?")),
+    function() {
+      let a = Object.values(document.querySelector("#body"))[0].stateNode;
+      return a[Object.keys(a).filter(b => b.includes("reactInternalInstance"))].return.stateNode
+    }().setState({
+      level
+    }), alert(`You are now Level ${level}.`)
+}();
